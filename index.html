@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behizor Gosht</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Social Preview (OG Tags) -->
+    <meta property="og:title" content="Behizor Gosht">
+    <meta property="og:description" content="Hammasini shuyerdan toping!">
+    <meta property="og:image" content="https://i.postimg.cc/1tWbcmbH/Behizor-gosht-logo.jpg">
+    <meta property="og:url" content="https://behizor-gosht.uz">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="version">1.1.2</div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container-top-left">
+        <button class="fab-btn save-btn" onclick="downloadVCF()" title="Kontaktni saqlash">
+            <i class="fa-solid fa-circle-arrow-down"></i>
+        </button>
+    </div>
+
+    <div class="fab-container-bottom-right">
+        <button class="fab-btn share-btn pulse-animation" onclick="shareSite()" title="Ulashish">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <header class="profile">
+            <div class="profile-img-wrapper">
+                <img src="https://i.postimg.cc/1tWbcmbH/Behizor-gosht-logo.jpg" alt="Behizor Gosht" class="profile-img">
+            </div>
+            <h1 class="profile-name">Behizor Gosht</h1>
+            <p class="profile-bio">Hammasini shuyerdan toping!</p>
+        </header>
+
+        <!-- Links Section -->
+        <main class="links">
+            <a href="tel:+998880300070" class="link-btn animated-btn pulse-animation" onclick="trackClick('Telefon')">
+                <div class="icon-wrapper"><i class="fa-solid fa-phone"></i></div>
+                <span class="link-text">Telefon</span>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+
+            <a href="https://t.me/behizorgosht" class="link-btn animated-btn pulse-animation" style="animation-delay: 0.5s;" onclick="trackClick('Telegram kanal')">
+                <div class="icon-wrapper"><i class="fa-brands fa-telegram"></i></div>
+                <span class="link-text">Telegram kanal</span>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+
+            <a href="https://t.me/Neolinks1" class="link-btn animated-btn pulse-animation" style="animation-delay: 1s;" onclick="trackClick('Telegram admin')">
+                <div class="icon-wrapper"><i class="fa-solid fa-user-tie"></i></div>
+                <span class="link-text">Telegram admin</span>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+
+            <a href="https://www.instagram.com/behizor_gosht.uz?igsh=bGh1aWplaXBoYXN0" class="link-btn animated-btn pulse-animation" style="animation-delay: 1.5s;" target="_blank" onclick="trackClick('Instagram')">
+                <div class="icon-wrapper"><i class="fa-brands fa-instagram"></i></div>
+                <span class="link-text">Instagram</span>
+                <i class="fa-solid fa-arrow-right link-arrow"></i>
+            </a>
+        </main>
+
+        <!-- Analytics Button -->
+        <div class="analytics-btn-trigger" onclick="openAnalyticsModal()">
+            <i class="fa-solid fa-chart-line"></i> Analitika Boshqaruvi
+        </div>
+
+        <!-- Location Map Card Section -->
+        <section class="location-section">
+            <a href="https://yandex.ru/maps/-/CPG4zCn3" target="_blank" class="map-card-link" onclick="trackClick('Location')">
+                <div class="map-card">
+                    <!-- Static preview image for performance, or an iframe -->
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=69.2401,41.2995&z=12" width="100%" height="300" frameborder="0" allowfullscreen="true" style="pointer-events: none;"></iframe>
+                    <div class="map-overlay">
+                        <div class="map-overlay-content">
+                            <div class="map-icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span>Bizning manzilni xaritada ko'rish</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" onclick="showSecurityModal()">
+        <span class="footer-text">safeneolink2026</span>
+    </footer>
+
+    <!-- Security Modal -->
+    <div id="security-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Xavfsizlik</h3>
+            <p>Xavfsizlik Neolink uchun 1-chi o'rinda!</p>
+            <button class="modal-btn" onclick="closeModal()">Tushunarli</button>
+        </div>
+    </div>
+
+    <!-- Analytics Modal -->
+    <div id="analytics-modal" class="full-modal">
+        <div class="full-modal-content">
+            <div class="modal-header">
+                <h2>Analitika Boshqaruvi</h2>
+                <i class="fa-solid fa-xmark close-btn" onclick="closeAnalyticsModal()"></i>
+            </div>
+            
+            <div id="analytics-login">
+                <p class="analytics-subtitle" style="margin-bottom:20px;text-align:center;">Analitikani ko'rish uchun parolni kiriting</p>
+                <div class="password-input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="analytics-password" placeholder="Parolni kiriting">
+                </div>
+                <button class="analytics-btn" onclick="checkPassword()">Kirish</button>
+                <p id="analytics-error" class="error-msg"></p>
+            </div>
+            
+            <div id="analytics-data" style="display: none;">
+                <div class="stats-top">
+                    <div class="stat-top-box">
+                        <div class="stat-top-label">JAMI TASHRIFLAR</div>
+                        <div class="stat-top-value" id="total-visits">0</div>
+                    </div>
+                    <div class="stat-top-box">
+                        <div class="stat-top-label">JAMI BOSISHLAR</div>
+                        <div class="stat-top-value" id="total-clicks">0</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="clicksChart"></canvas>
+                </div>
+
+                <div class="recent-actions">
+                    <h3>So'nggi harakatlar</h3>
+                    <div class="table-container">
+                        <table id="actions-table">
+                            <thead>
+                                <tr>
+                                    <th>VAQT</th>
+                                    <th>HARAKAT</th>
+                                    <th>QURILMA</th>
+                                </tr>
+                            </thead>
+                            <tbody id="actions-tbody">
+                                <!-- Rows injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="security-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Xavfsizlik</h3>
+            <p>Xavfsizlik Neolink uchun 1-chi o'rinda!</p>
+            <button class="modal-btn" onclick="closeModal()">Tushunarli</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

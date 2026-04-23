@@ -232,17 +232,18 @@ function downloadVCF() {
                   "FN:Behizor Gosht\n" +
                   "ORG:Behizor Gosht\n" +
                   "TEL;TYPE=CELL:+998880300070\n" +
-                  "URL:" + window.location.href + "\n" +
+                  "URL:" + window.location.origin + "\n" +
                   "NOTE:Hammasini shuyerdan toping!\n" +
                   "END:VCARD";
     
-    const blob = new Blob([vcard], { type: "text/vcard" });
-    const url = window.URL.createObjectURL(blob);
-    const newLink = document.createElement('a');
-    newLink.download = "Behizor_Gosht.vcf";
-    newLink.textContent = "Behizor_Gosht.vcf";
-    newLink.href = url;
-    newLink.click();
+    const uri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+    const link = document.createElement("a");
+    link.setAttribute("href", uri);
+    link.setAttribute("download", "Behizor_Gosht.vcf");
+    document.body.appendChild(link); // Body'ga qo'shish mobil qurilmalar uchun shart
+    link.click();
+    document.body.removeChild(link);
+  
 }
 
 function saveToPhone() {
